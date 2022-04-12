@@ -21,7 +21,6 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", __file__)
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-(3tgphu&a@()_-4g6lh@lw3_7&5v_(lun3q*o2shna343fs)_o'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
