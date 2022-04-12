@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Contato</title>
+    </head>
+    <body>
+        {% for elemento in contatos %}
+        <p> Contato {{ elemento }} </p>
+        {% endfor %}
+        {% for produto in produtos %}
+        <p> <a href="{% url 'produto' produto.id %}"> {{ produto.nome }} </a>  </p>
+        {% endfor %}
+    </body>
+
+</html>

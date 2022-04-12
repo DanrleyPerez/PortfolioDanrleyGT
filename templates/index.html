@@ -1,0 +1,734 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    
+    <!--====== Title ======-->
+    <title> Portfólio Danrley </title>
+    
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--====== Favicon Icon ======-->
+    <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="image/png">
+        
+    <!--====== Animate CSS ======-->
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+        
+    <!--====== Magnific Popup CSS ======-->
+    <link rel="stylesheet" href="{% static '/css/magnific-popup.css' %}">
+        
+    <!--====== Slick CSS ======-->
+    <link rel="stylesheet" href="{% static '/css/slick.css' %}">
+        
+    <!--====== Line Icons CSS ======-->
+    <link rel="stylesheet" href="{% static '/css/LineIcons.css' %}">
+        
+    <!--====== Font Awesome CSS ======-->
+    <link rel="stylesheet" href="{% static '/css/font-awesome.min.css' %}">
+        
+    <!--====== Bootstrap CSS ======-->
+    <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}">
+    
+    <!--====== Default CSS ======-->
+    <link rel="stylesheet" href="{% static '/css/default.css' %}">
+    
+    <!--====== Style CSS ======-->
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    
+</head>
+
+<body>
+    <!--[if IE]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->    
+   
+   
+    <!--====== PRELOADER PART START ======-->
+
+    <div class="preloader">
+        <div class="loader">
+            <div class="ytp-spinner">
+                <div class="ytp-spinner-container">
+                    <div class="ytp-spinner-rotator">
+                        <div class="ytp-spinner-left">
+                            <div class="ytp-spinner-circle"></div>
+                        </div>
+                        <div class="ytp-spinner-right">
+                            <div class="ytp-spinner-circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--====== PRELOADER PART ENDS ======-->
+    
+    <!--====== HEADER PART START ======-->
+    
+    <header class="header-area">
+        <div class="navbar-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <nav class="navbar navbar-expand-lg">
+
+                            <a class="navbar-brand" href="index.html">
+                                <img src="{% static '/images/logo.png' %}" alt="Logo">
+                            </a>
+                            <div id="novo_titulo">
+
+                            </div>
+
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ml-auto">
+                                    <li class="nav-item active">
+                                        <a class="page-scroll" href="#home">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="page-scroll" href="#Portfolio">Sobre</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="page-scroll" href="#Contato">Contato</a>
+                                    </li>
+
+                                </ul>
+                            </div> <!-- navbar collapse -->
+                            
+                            <div class="navbar-btn d-none d-sm-inline-block">
+                                <a class="main-btn" data-scroll-nav="0" onclick="window.location = '/loginz' " > Login </a> <!--https://meu-primeiro-django21025.herokuapp.com/loginz-->
+                            </div>
+                        </nav> <!-- navbar -->
+                        <div id="titulo_pylo" class="row justify-content-center">
+
+                        </div>
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </div> <!-- navbar area -->
+        
+        <div id="home" class="header-hero bg_cover" style="background-image: url(/images/banner-bg.svg)">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                         <!-- header hero content -->
+                    </div>
+                </div> <!-- row -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="header-hero-image text-center wow fadeIn" data-wow-duration="1.3s" data-wow-delay="1.4s">
+                            <div id="local_pylo">
+                                {% if imagem.tamanho == 'big' %}
+                                    <div> <h2>Web Scraping</h2></div>
+                                {% endif %}
+                                <div style="padding: 50px 0; "></div> <img  id="imagem_central" src="{% static '/images/pczin.png' %}" alt="hero">
+
+                            </div>
+                        </div> <!-- header hero image -->
+
+
+                    <div class="header-hero-content text-center">
+                        <form id="post-form" method="POST">
+                            {% csrf_token %}
+                            <div class="centro">
+                                <div class="float-parent-element">
+                                    <div class="float-child-element">
+                                        <div>
+                                            <h6 style="font-family: 'Poppins', sans-serif;"> Termo para Busca : </h6>
+                                        </div>
+                                        <br>
+                                        <br>
+                                        <div id="div_termo" class="input-group form-group">
+                                            <div class="col-md-12 centroinputnumber"><input type="text" class="form-control form-control-sm" name="termo_interesse" id="termo_interesse"></div>
+                                        </div>
+                                    </div>
+                                    <div class="float-child-element">
+                                        <div>
+                                            <h6 style="font-family: 'Poppins', sans-serif;">Numero de Produtos :</h6>
+                                        </div>
+                                        <br>
+                                        <br>
+                                        <div class="input-group form-group">
+                                            <div class="col-xs-6 centroinputnumber"><input type="number" class="form-control form-control-sm" name="quantidade_produtos" id="quantidade_produtos"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="centroiniciar">
+                                    <button id="iniciar" type="submit" class="main-btn">Iniciar captura</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    </div>
+
+                </div> <!-- row -->
+            </div> <!-- container -->
+            <div id="particles-1" class="particles"></div>
+        </div> <!-- header hero -->
+
+    </header>
+    
+    <!--====== HEADER PART ENDS ======-->
+
+    <section id="comoUsar" class="about-area pt-40">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="about-content mt-50 wow fadeInLeftBig" data-wow-duration="1s" data-wow-delay="0.5s">
+                        <div class="section-title">
+                            <h3 class="title">Sobre: </h3>
+
+                            <div class="line"></div>
+
+                        </div> <!-- section title -->
+                        <p class="text"> Aplicação web criada com o intuito de análise de mercado para o Marketplace do Elo7, visando auxiliar os pequenos vendedores na escolha de parâmetros para o anúncio de seus
+                        produtos. Em termo para busca, escolha o nome para o produto ao qual tem interesse de anunciar, e ao lado o número de produtos para a análise. Ao iniciar, será feita uma varredura em todas as páginas,
+                        trazendo as principais informações e métricas.
+                    </div> <!-- about content -->
+                </div>
+
+            </div> <!-- row -->
+        </div> <!-- container -->
+
+    </section>
+    <!--====== SERVICES PART START ======-->
+    
+    <section id="features" class="services-area pt-80">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="section-title text-center pb-40">
+                        <div class="line m-auto"></div>
+                        <h3 class="title">Principais tecnologias utilizadas nesse projeto :</h3>
+                    </div> <!-- section title -->
+                </div>
+            </div> <!-- row -->
+            <div class="row justify-content-center">
+                <div class="col-lg-4 col-md-7 col-sm-8">
+                    <div class="single-services text-center mt-30 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
+                        <div class="services-icon">
+                            <img class="shape" src="{% static '/images/python.png' %}" alt="shape">
+                            <br>
+
+                        </div>
+                        <div class="services-content mt-30">
+                            <h4 class="services-title"><a href="#">Python</a></h4>
+                            <p class="text"> Alta velocidade e simplicidade para análise de dados.</p>
+                        </div>
+                    </div> <!-- single services -->
+                </div>
+                <div class="col-lg-4 col-md-7 col-sm-8">
+                    <div class="single-services text-center mt-30 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
+                        <div class="services-icon">
+                            <img class="shape" src="{% static '/images/django.png' %}" alt="shape">
+                            <br>
+                        </div>
+                        <div class="services-content mt-30">
+                            <h4 class="services-title"><a href="#">Django</a></h4>
+                            <p class="text">Framework muito utilizado no desenvolvimento web em empresas como: Spotfy, Youtube, Reddit.</p>
+                        </div>
+                    </div> <!-- single services -->
+                </div>
+                <div class="col-lg-4 col-md-7 col-sm-8">
+                    <div class="single-services text-center mt-30 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.8s">
+                        <div class="services-icon">
+                            <img class="shape" src="{% static '/images/bootstrap.png' %}" alt="shape">
+                            <br>
+                        </div>
+                        <div class="services-content mt-30">
+                            <h4 class="services-title"><a href="#">Bootstrap</a></h4>
+                            <p class="text">Para algumas intereções e estilos da página </p>
+
+                        </div>
+                    </div> <!-- single services -->
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </section>
+    
+    <!--====== SERVICES PART ENDS ======-->
+    
+    <!--====== ABOUT PART START ======-->
+    
+    <section  id="Portfolio" class="about-area pt-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="about-content mt-50 wow fadeInLeftBig" data-wow-duration="1s" data-wow-delay="0.5s">
+                        <div class="section-title">
+                            <h3  class="title">Sobre mim</h3>
+
+                            <div class="line"></div>
+                            <h3 class="title">Danrley Perez Sena </h3>
+                        </div> <!-- section title -->
+                        <p class="text"> Tenho 25 anos, sou estudante de Engenharia de Informação pela Universidade Federal do ABC.
+                        Procuro em meu tempo livre a constante evolução do meu conhecimento, para que além de teórico e não menos importante, seja prático
+                        buscando sempre a sua aplicação às necessidades do mercado de trabalho. </p>
+                        <a href="#Contato" class="main-btn">Contato</a>
+                    </div> <!-- about content -->
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-image text-center mt-50 wow fadeInRightBig" data-wow-duration="1s" data-wow-delay="0.5s">
+                        {% if imagem.tamanho == 'big' %}
+                        <img src="{% static '/images/meG.png' %}" alt="about">
+                        {% else %}
+                        <div class = "centro"><img src="{% static '/images/me.png' %}" alt="about"></div>
+                        {% endif %}
+
+                    </div> <!-- about image -->
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+
+    </section>
+    
+    <!--====== ABOUT PART ENDS ======-->
+    
+    <!--====== ABOUT PART START ======-->
+    
+    <section class="about-area pt-70">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 order-lg-last">
+                    <div class="about-content mt-50 wow fadeInLeftBig" data-wow-duration="1s" data-wow-delay="0.5s">
+                        <div class="section-title">
+                            <h3> Experiências </h3>
+                            <div class="line"></div>
+                            <h3 class="title"> Additive Manufacturing </h3>
+                        </div> <!-- section title -->
+                        <b> Autonomo </b> <i>(2019 - Atualmente)</i> <br> Modelagem CAD, manutenção e operação de Impressoras 3D, criação de produtos,
+                        acabamento de peças artísticas e técnicas, compra de matéria prima, venda de produtos.
+                    </div> <!-- about content -->
+                </div>
+                <div class="col-lg-6 order-lg-first">
+                    <div class="about-image text-center mt-50 wow fadeInRightBig" data-wow-duration="1s" data-wow-delay="0.5s">
+                        {% if imagem.tamanho == 'big' %}
+                        <img src="{% static '/images/impressora3dG.jpg' %}" alt="about">
+                        {% else %}
+                        <div class = "centro"><img src="{% static '/images/impressora3d.jpg' %}" alt="about"></div>
+                        {% endif %}
+
+                    </div> <!-- about image -->
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </section>
+
+
+    <!--====== ABOUT PART START ======-->
+    
+    <section class="about-area pt-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 order-lg-last">
+                    <div class="about-content mt-50 wow fadeInLeftBig" data-wow-duration="1s" data-wow-delay="0.5s">
+                        <div class="section-title">
+                            <div class="line"></div>
+                            <h3 class="title"> Auxiliar de T.I </h3>
+                        </div> <!-- section title -->
+                            <br>
+                        <b> Universo Tintas e Vernizes </b>  <i>(09/2020 - 05/2021)</i> <br> Experiência voltada a suporte aos usuários
+                            (Help Desk), instalações e atualizações de softwares, formatação, recuperação e manutenção de computadores,
+                            Disponibilidade e Qualidade e Segurança dos sistemas: Windows, Pacote Office, VPN, Firewall, E-mail,
+                            Antivírus e de equipamentos: Roteadores, Cabos de redes, Impressoras, Computadores e Notebooks.
+
+                    </div> <!-- about content -->
+                </div>
+                <div class="col-lg-6 order-lg-first">
+                    <div class="about-image text-center mt-50 wow fadeInRightBig" data-wow-duration="1s" data-wow-delay="0.5s">
+                        {% if imagem.tamanho == 'big' %}
+                        <img src="{% static '/images/universotintasG.png' %}" alt="about">
+                        {% else %}
+                        <div class = "centro"><img src="{% static '/images/universotintas.png' %}" alt="about"></div>
+                        {% endif %}
+
+                    </div> <!-- about image -->
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </section>
+
+    <section class="about-area pt-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 order-lg-last">
+                    <div class="about-content mt-50 wow fadeInLeftBig" data-wow-duration="1s" data-wow-delay="0.5s">
+                        <div class="section-title">
+                            <div class="line"></div>
+                            <h3 class="title"> Programação  </h3>
+                        </div> <!-- section title -->
+                        <p class="text"> <b> Graduação e estudos extracurriculares</b> <i> (2020 - Atualmente) </i> <br>
+                        Desde que entrei na área de T.I em 2020 comecei a me dedicar em aprender sobre programação,
+                        tanto na graduação quanto de maneira autodidata, passando pelos principais pontos: Lógica de Programação,
+                        Paradigmas de programação (Programação Orientada a Objetos e Programação Estruturada). Tipos de dados.
+                        Bancos de Dados Relacionais (MySQL, Postgree, SQLite).  Fundamentos e segurança de redes, Cliente-Servidor,
+                        . A linguagem a qual mais me identifico e pratico é Python, porém tenho noções de Java, C e
+                        um pouco de Front-End: CSS, JavaScript e HTML.
+                        </p>
+
+                    </div> <!-- about content -->
+                </div>
+                <br>
+                <div class="col-lg-6 order-lg-last">
+                    <div class="about-image text-center mt-50 wow fadeInRightBig" data-wow-duration="1s" data-wow-delay="0.5s">
+                        {% if imagem.tamanho == 'big' %}
+                        <img src="{% static '/images/codingG.png' %}" alt="about">
+                        {% else %}
+                        <div class = "centro"><img src="{% static '/images/coding.png' %}" alt="about"></div>
+                        {% endif %}
+
+
+                    </div> <!-- about image -->
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </section>
+
+    <section class="about-area pt-70">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 order-lg-last">
+                    <div class="about-content mt-50 wow fadeInLeftBig" data-wow-duration="1s" data-wow-delay="0.5s">
+                        <div class="section-title">
+                            <h3> Formação </h3>
+                            <div class="line"></div>
+                            <h3 class="title"> Engenharia de Informação </h3>
+                        </div> <!-- section title -->
+                        <b> Universidade Federal do ABC </b> <i>(6º semestre)</i> <br> O bachararelado em Ciências e Tecnologia
+                        consiste na base comum das engenharias, somada as materias da graduação específica, no meu caso Engenharia
+                        de Informação. Até agora o curso me possibilitou uma base sólida em Matemática, Física e Tecnologica, algumas
+                        das matérias já cursadas: Cálculo I, II e III; Física I, II e III; Álgebra Linear; Cálculo Numérico; Processamento da Informação;
+                        Informação; Natureza da Informação; Bases das Computacionais da Ciência; Programação Estruturada; Comunicação e Redes; Probabilidade e
+                        Estatística.
+                    </div>
+                </div>
+                <div class="col-lg-6 order-lg-first">
+                    <div class="about-image text-center mt-50 wow fadeInRightBig" data-wow-duration="1s" data-wow-delay="0.5s">
+                        {% if imagem.tamanho == 'big' %}
+                        <img src="{% static '/images/UfabcG.png' %}" alt="about">
+                        {% else %}
+                        <div class = "centro"><img src="{% static '/images/Ufabc.png' %}" alt="about"></div>
+                        {% endif %}
+
+
+
+
+                    </div> <!-- about image -->
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </section>
+
+    <section class="about-area pt-70">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 order-lg-first">
+                    <div class="about-content mt-50 wow fadeInLeftBig" data-wow-duration="1s" data-wow-delay="0.5s">
+                        <div class="section-title">
+                            <h3> Formação </h3>
+                            <div class="line"></div>
+                            <h3 class="title"> Ensino Médio </h3>
+                        </div> <!-- section title -->
+                        <b> Colégio Termomecanica </b> <i> (formação: 2013) </i> <br> Uma instituição focada na
+                        educação de alunos e pessoas, onde tive uma base fundamental para toda a vida acadêmica,
+                        consolidando a importancia da diciplina, dedicação e trabalho em equipe.
+                    </div> <!-- about content -->
+                </div>
+                <div class="col-lg-6 order-lg-last">
+                    <div class="about-image text-center mt-50 wow fadeInRightBig" data-wow-duration="1s" data-wow-delay="0.5s">
+                        {% if imagem.tamanho == 'big' %}
+                        <img src="{% static '/images/TermomecanicaG.png' %}" alt="about">
+                        {% else %}
+                        <div class = "centro"><img src="{% static '/images/Termomecanica.png' %}" alt="about"></div>
+                        {% endif %}
+                    </div> <!-- about image -->
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </section>
+
+    <!--====== ABOUT PART ENDS ======-->
+
+    
+    <!--====== TESTIMONIAL PART START ======-->
+    
+    <section id="testimonial" class="testimonial-area pt-120">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-5">
+                    <div class="section-title text-center pb-40">
+                        <div class="line m-auto"></div>
+                        <h3 class="title">Idiomas</h3>
+                    </div> <!-- section title -->
+                </div>
+            </div> <!-- row -->
+            <div >
+                <div class="row testimonial-active wow fadeInUpBig" data-wow-duration="1s" data-wow-delay="0.8s">
+
+                    <div class="single-testimonial">
+                        <div class="testimonial-review d-flex align-items-center justify-content-between">
+                            <div>
+                                Português
+                            </div>
+                            <div class="star">
+                                <ul>
+                                    <li><i class="lni-star-filled"></i></li>
+                                    <li><i class="lni-star-filled"></i></li>
+                                    <li><i class="lni-star-filled"></i></li>
+                                    <li><i class="lni-star-filled"></i></li>
+                                    <li><i class="lni-star-filled"></i></li>
+                                    <li><i class="lni-star-filled"></i></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="testimonial-text">
+                            <p class="text"><b> Nativo </b><br></p>
+                        </div>
+                        <div class="testimonial-author d-flex align-items-center">
+
+                        </div>
+                    </div> <!-- single testimonial -->
+
+
+                    <div class="single-testimonial">
+                        <div class="testimonial-review d-flex align-items-center justify-content-between">
+                            <div>
+                                Inglês
+                            </div>
+                            <div class="star">
+                                <ul>
+                                    <li><i class="lni-star-filled"></i></li>
+                                    <li><i class="lni-star-filled"></i></li>
+                                    <li><i class="lni-star-filled"></i></li>
+                                    <li><i class="lni-star-filled"></i></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="testimonial-text">
+                            <p class="text"><b> Avançado </b><br> Capacidade de entender, se comunicar e escrever com eficácia.</p>
+                        </div>
+                        <div class="testimonial-author d-flex align-items-center">
+
+                        </div>
+                    </div> <!-- single testimonial -->
+                    <div class="single-testimonial">
+                        <div class="testimonial-review d-flex align-items-center justify-content-between">
+                            <div>
+                                Espanhol
+                            </div>
+                            <div class="star">
+                                <ul>
+                                    <li><i class="lni-star-filled"></i></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="testimonial-text">
+                            <p class="text"><b> Básico </b><br> Capacidade de entender algumas palavras e conversas.</p>
+                        </div>
+                        <div class="testimonial-author d-flex align-items-center">
+
+                        </div>
+                    </div>
+            </div>
+
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </section>
+    
+    <!--====== TESTIMONIAL PART ENDS ======-->
+
+    
+    <!--====== FOOTER PART START ======-->
+    
+    <footer id="footer" class="footer-area pt-120">
+        <div class="container">
+
+            <div class="footer-widget pb-100">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-8">
+                        <div class="footer-about mt-50 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
+
+                        </div> <!-- footer about -->
+                    </div>
+                    <div class="col-lg-5 col-md-7 col-sm-7">
+                        <div class="footer-link d-flex mt-50 justify-content-md-between">
+                            <!-- footer wrapper -->
+                            <div class="link-wrapper wow fadeIn" data-wow-duration="1s" data-wow-delay="0.6s">
+                                <div class="footer-title">
+                                    <h4 class="title">Resources</h4>
+                                </div>
+                                <div style="padding: 330px 0;">
+                                    <ul class="link">
+                                        <li><a href="#">Home</a></li>
+                                        <li><a href="#Portfolio">Portfolio</a></li>
+                                        <li><a href="#Contato">Contato</a></li>
+                                    </ul>
+                                </div>
+                            </div> <!-- footer wrapper -->
+                        </div> <!-- footer link -->
+                    </div>
+                    <div id="Contato" style="padding: 400px 0;" class="col-lg-3 col-md-5 col-sm-5">
+                        <div class="footer-contact mt-50 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.8s">
+                            <div class="footer-title">
+                                <h4 class="title">Contato</h4>
+                            </div>
+                            <br><br>
+                            <div>
+                                <ul  class="contato">
+                                    <li><a style="color: #fff;">+55 11 977314883</a></li>
+                                    <li><a style="color: #fff;">danrley2109@gmail.com</a></li>
+                                    <li><a href="https://www.linkedin.com/in/danrley-perez-sena-600292133" style="color: #fff;"> LinkedIn</a></li>
+                                    <li><a href="https://github.com/DanrleyPerez" style="color: #fff"> GitHub </a></li>
+                                </ul>
+                            </div>
+                        </div> <!-- footer contact -->
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- footer widget -->
+            <div class="footer-copyright">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="copyright d-sm-flex justify-content-between">
+                            <div class="copyright-content">
+                                <p class="text">Template desenvolvido por <a href="https://uideck.com" rel="nofollow">UIdeck</a> </p>
+                                <p class="text">Adaptação e Funcionalidades: Danrley Perez Sena</p>
+                            </div> <!-- copyright content -->
+                        </div> <!-- copyright -->
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- footer copyright -->
+        </div> <!-- container -->
+        <div id="particles-2"></div>
+    </footer>
+    
+    <!--====== FOOTER PART ENDS ======-->
+    
+    <!--====== BACK TOP TOP PART START ======-->
+
+    <a href="#" class="back-to-top"><i class="lni-chevron-up"></i></a>
+
+    <!--====== BACK TOP TOP PART ENDS ======-->   
+    
+    <!--====== PART START ======-->
+    
+<!--
+    <section class="">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-"></div>
+            </div>
+        </div>
+    </section>
+-->
+    
+    <!--====== PART ENDS ======-->
+
+
+
+
+    <!--====== Jquery js ======-->
+    <script src="{% static '/js/vendor/jquery-1.12.4.min.js' %}"></script>
+    <script src="{% static '/js/vendor/modernizr-3.7.1.min.js' %}"></script>
+    
+    <!--====== Bootstrap js ======-->
+    <script src="{% static '/js/popper.min.js' %}"></script>
+    <script src="{% static '/js/bootstrap.min.js' %}"></script>
+    
+    <!--====== Plugins js ======-->
+    <script src="{% static '/js/plugins.js' %}"></script>
+    
+    <!--====== Slick js ======-->
+    <script src="{% static '/js/slick.min.js' %}"></script>
+    
+    <!--====== Ajax Contact js ======-->
+    <script src="{% static '/js/ajax-contact.js' %}"></script>
+    
+    <!--====== Counter Up js ======-->
+    <script src="{% static '/js/waypoints.min.js' %}"></script>
+    <script src="{% static '/js/jquery.counterup.min.js' %}"></script>
+    
+    <!--====== Magnific Popup js ======-->
+    <script src="{% static '/js/jquery.magnific-popup.min.js' %}"></script>
+    
+    <!--====== Scrolling Nav js ======-->
+    <script src="{% static '/js/jquery.easing.min.js' %}"></script>
+    <script src="{% static '/js/scrolling-nav.js' %}"></script>
+    
+    <!--====== wow js ======-->
+    <script src="{%static '/js/wow.min.js' %}"></script>
+    
+    <!--====== Particles js ======-->
+    <script src="{% static '/js/particles.min.js' %}"></script>
+    
+    <!--====== Main js ======-->
+    <script src="{% static '/js/main.js' %}"></script>
+    <script>
+        function wait(){
+            window.scrollTo(0, 70);
+            var div = document.getElementById('local_pylo');
+            div.innerHTML ="<div id='ax' ><img id='x' src='https://portfolio-danrley.herokuapp.com/staticfiles/images/x.png'>  <br> <p> <b> Carregando ...</b> </p> </div>";
+            div.setAttribute('style','padding: 200px 0;')
+
+        }
+        $(document).on('submit','#post-form',function(e){
+            e.preventDefault();
+            $.ajax({
+                type:'POST',
+                url:"https://portfolio-danrley.herokuapp.com/",
+
+                data: {
+                    termo_interesse:$('#termo_interesse').val(),
+                    quantidade_produtos:$('#quantidade_produtos').val(),
+                    csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+                    },
+                beforeSend: function() {
+                    wait();
+                  }
+                }).always(function(data) {
+                    var res = document.getElementById('local_pylo');
+                    if (data.infos['n_pag_vasculhadas'] != 'proibido'){
+                        const img = new Image(150, 150); // width, height
+
+                        img.src = "https://portfolio-danrley.herokuapp.com/staticfiles/images/success.png";
+                        img.setAttribute('id','sucesso')
+                        alert("Sucesso!");
+
+
+                        res.innerHTML="<div><b><h6>Produto:</h6> "+data.infos['nome']+"</b><br> <b><h6>Número de páginas vasculhadas:</h6> "+data.infos['n_pag_vasculhadas']+" </b><br> <b><h6>Quantidade de produtos encontrados:</h6> "+data.infos['total']+"</b><br> <b><h6>Media de preços:</h6> R$ "+data.infos['media']+"</b><br><b><h6>Valor Mínimo encontrado: </h6>R$ "+data.infos['minimo']+"</b><br><b><h6>Valor Máximo encontrado: </h6>R$ "+data.infos['maximo']+"</b><br><b><h6>Média de preço 10 primeiros : </h6>R$ "+data.infos['media_primeiros10']+"</b></div>";
+                        res.setAttribute('style','padding: 100px 0 0;');
+                        res.appendChild(img);
+                        }
+                    else {
+                        // setTimeout(() => {  alert("Mínimo 1 produto, Máximo 1200"); }, 2000);
+                        alert("Mínimo 1 produto, Máximo 1200");
+                        const img = new Image(150, 150);
+                        img.src = "https://portfolio-danrley.herokuapp.com/staticfiles/images/pczin.png";
+                        img.setAttribute('id','fail')
+
+                        res.innerHTML="<div>  </div>";
+                        res.setAttribute('style','padding: 100px 0 0;');
+                        res.appendChild(img);
+                    }
+                });
+        });
+    </script>
+
+</body>
+
+</html>
